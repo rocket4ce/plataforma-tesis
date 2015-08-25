@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trabajos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cod</th>
+      <th>Fecha bloqueo</th>
+      <th>Fecha lib</th>
+      <th>Hora estimada</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trabajos.each do |trabajo| %>
+      <tr>
+        <td><%= trabajo.cod %></td>
+        <td><%= trabajo.fecha_bloqueo %></td>
+        <td><%= trabajo.fecha_lib %></td>
+        <td><%= trabajo.hora_estimada %></td>
+        <td><%# link_to 'Show', departamento_trabajo_path(trabajo)  %></td>
+        <td><%# link_to 'Edit', edit_departamento_trabajo_path(trabajo) %></td>
+        <td><%# link_to 'Destroy', departamento_trabajo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trabajo', new_departamento_trabajo_path %>

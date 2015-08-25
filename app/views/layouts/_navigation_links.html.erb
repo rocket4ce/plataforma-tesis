@@ -10,4 +10,7 @@
   <% if current_user.try(:admin?) %>
     <li><%= link_to 'Users', users_path %></li>
   <% end %>
+  <% if current_user.try(:manager?) || current_user.try(:admin?) %>
+    <li><%= link_to 'Departamentos', departamentos_path %></li>
+  <% end %>
 <% end %>

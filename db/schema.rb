@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818025446) do
+ActiveRecord::Schema.define(version: 20150825031400) do
+
+  create_table "departamentos", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "supervisor"
+  end
+
+  add_index "departamentos", ["user_id"], name: "index_departamentos_on_user_id"
+
+  create_table "trabajos", force: :cascade do |t|
+    t.string   "cod"
+    t.datetime "fecha_bloqueo"
+    t.datetime "fecha_lib"
+    t.string   "hora_estimada"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "departamento_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
